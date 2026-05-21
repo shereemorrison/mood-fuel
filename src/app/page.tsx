@@ -1,4 +1,5 @@
 import { Navigation } from "@/components/layout/Navigation";
+import { Hero } from "@/components/sections/Hero";
 import { Shell } from "@/components/sections/Shell";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <>
       <Navigation />
       <main>
+        <Hero />
         <Shell />
       </main>
     </>
