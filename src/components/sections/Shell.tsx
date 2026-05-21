@@ -1,17 +1,20 @@
 export function Shell() {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center bg-cream px-4 pt-24 pb-16 md:px-8">
+    <section
+      id="palette"
+      className="flex flex-col items-center justify-center bg-cream px-4 py-24 md:px-8 md:py-32"
+    >
       <div className="mx-auto max-w-4xl text-center">
         <span className="inline-block brutal-border rounded-full bg-yellow px-5 py-2 font-display text-xs uppercase tracking-[0.3em] -rotate-2 mb-10">
           Digital Wellbeing Campaign
         </span>
 
-        <h1 className="font-display uppercase leading-[0.85] text-black">
+        <h2 className="font-display uppercase leading-[0.85] text-black">
           <span className="block text-[clamp(3rem,12vw,8rem)]">MOOD</span>
           <span className="block text-[clamp(3rem,12vw,8rem)] text-orange">
             FUEL
           </span>
-        </h1>
+        </h2>
 
         <p className="mx-auto mt-8 max-w-lg text-lg text-black/80">
           A playful rebellion against digital burnout. Turn down the noise.

@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-export function ScrollArrow() {
+export function ScrollArrow({ className = "" }: { className?: string }) {
   const ref = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
@@ -26,8 +26,8 @@ export function ScrollArrow() {
   return (
     <a
       ref={ref}
-      href="#brain"
-      className="mt-16 flex flex-col items-center gap-2 text-black transition-colors hover:text-orange"
+      href="#palette"
+      className={`flex flex-col items-center gap-2 text-black transition-colors hover:text-orange ${className}`}
       aria-label="Scroll to content"
     >
       <span className="font-display text-xs uppercase tracking-[0.3em]">
