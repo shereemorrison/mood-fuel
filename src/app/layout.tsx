@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Archivo_Black, DM_Sans } from "next/font/google";
 import { GsapProvider } from "@/components/providers/GsapProvider";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 
 const archivoBlack = Archivo_Black({
   weight: "400",
@@ -29,6 +30,7 @@ export default function RootLayout({
     <html lang="en" className={`${archivoBlack.variable} ${dmSans.variable}`}>
       <body className="font-sans antialiased">
         <GsapProvider>{children}</GsapProvider>
+        <Analytics/>
       </body>
     </html>
   );
