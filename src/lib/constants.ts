@@ -50,3 +50,11 @@ export const BRAIN_TOPICS = [
     rotate: "rotate-0",
   },
 ] as const;
+
+export const MOODS = [
+  { id: "wired", label: "WIRED", emoji: "⚡", stat: "847% overstimulated" },
+  { id: "foggy", label: "FOGGY", emoji: "🌫️", stat: "12 tabs open, 0 remembered" },
+  { id: "buzzing", label: "BUZZING", emoji: "🐝", stat: "Notifications: ∞" },
+  { id: "empty", label: "EMPTY", emoji: "🫥", stat: "Screen time: don't ask" },
+  { id: "spark", label: "SPARK", emoji: "✨", stat: "Creative peak: 2:47am" },
+] as const;
