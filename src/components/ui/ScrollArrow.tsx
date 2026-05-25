@@ -26,7 +26,7 @@ export function ScrollArrow({ className = "" }: { className?: string }) {
   return (
     <a
       ref={ref}
-      href="#brain"
+      href="#manifesto"
       className={`flex flex-col items-center gap-2 text-black transition-colors hover:text-orange ${className}`}
       aria-label="Scroll to content"
     >

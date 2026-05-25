@@ -4,7 +4,9 @@ import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MOODS } from "@/lib/constants";
+import { section, sectionBody, sectionHeader, sectionTitle } from "@/lib/sectionStyles";
 import { BrutalButton } from "@/components/ui/BrutalButton";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { useScrollReveal } from "@/hooks/useGsap";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -30,8 +32,8 @@ export function Wellbeing() {
     if (!cardRef.current) return;
     gsap.fromTo(
       cardRef.current,
-      { scale: 0.95, opacity: 0.7, rotation: -3 },
-      { scale: 1, opacity: 1, rotation: 0, duration: 0.5, ease: "back.out(1.5)" },
+      { scale: 0.97, opacity: 0.8 },
+      { scale: 1, opacity: 1, duration: 0.4, ease: "power2.out" },
     );
   }, [activeMood]);
 
@@ -40,10 +42,10 @@ export function Wellbeing() {
     if (!stats) return;
 
     gsap.from(stats, {
-      y: 20,
+      y: 12,
       opacity: 0,
-      stagger: 0.1,
-      duration: 0.6,
+      stagger: 0.08,
+      duration: 0.5,
       scrollTrigger: {
         trigger: statsRef.current,
         start: "top 90%",
@@ -52,75 +54,70 @@ export function Wellbeing() {
   }, []);
 
   return (
-    <section
-      id="mood"
-      ref={sectionRef}
-      className="bg-yellow px-4 py-24 md:px-8 md:py-32"
-    >
+    <section id="mood" ref={sectionRef} className={`${section} bg-yellow`}>
       <div className="mx-auto max-w-7xl">
         <div
           data-reveal
-          className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
+          className={`${sectionHeader} flex flex-col gap-3 md:flex-row md:items-end md:justify-between`}
         >
           <div>
-            <span className="inline-block brutal-border rounded-full bg-black px-4 py-1 font-display text-xs uppercase text-cream mb-6 rotate-2">
+            <SectionBadge variant="black" className="rotate-2">
               Interactive
-            </span>
-            <h2 className="font-display text-[clamp(2.5rem,8vw,5.5rem)] uppercase leading-[0.9]">
+            </SectionBadge>
+            <h2 className={sectionTitle}>
               How&apos;s Your
               <span className="block text-orange">Brain Today?</span>
             </h2>
           </div>
-          <p className="max-w-md text-lg font-medium">
-            Pick a mood. Get fake stats. Feel slightly called out. It&apos;s
-            therapeutic-ish.
+          <p className={`${sectionBody} max-w-sm md:text-right`}>
+            Pick a mood. Get fake stats. Feel slightly called out.
           </p>
         </div>
 
-        <div data-reveal className="mb-10 flex flex-wrap gap-3 md:gap-4">
+        <div data-reveal className="mb-6 flex flex-wrap gap-2">
           {MOODS.map((mood) => (
             <BrutalButton
               key={mood.id}
               variant={activeMood === mood.id ? "black" : "cream"}
-              size="lg"
+              size="md"
               onClick={() => setActiveMood(mood.id)}
-              className={activeMood === mood.id ? "scale-105 -rotate-2" : ""}
+              className={`text-xs ${activeMood === mood.id ? "-rotate-1" : ""}`}
             >
-              <span className="mr-2">{mood.emoji}</span>
+              <span className="mr-1.5">{mood.emoji}</span>
               {mood.label}
             </BrutalButton>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-6">
           <div
             ref={cardRef}
             data-reveal
-            className="brutal-border brutal-shadow rounded-3xl bg-cream p-8 md:p-12 min-h-[280px] flex flex-col justify-between"
+            className="brutal-border brutal-shadow rounded-2xl bg-cream p-6 flex flex-col justify-between min-h-[200px]"
           >
             <div>
-              <span className="text-6xl md:text-8xl" role="img" aria-hidden>
+              <span className="text-4xl md:text-5xl" role="img" aria-hidden>
                 {currentMood.emoji}
               </span>
-              <h3 className="mt-6 font-display text-4xl md:text-5xl uppercase">
+              <h3 className="mt-3 font-display text-2xl uppercase md:text-3xl">
                 {currentMood.label}
               </h3>
             </div>
-            <p className="mt-8 font-display text-xl md:text-2xl uppercase text-orange">
+            <p className="mt-4 font-display text-base uppercase text-orange md:text-lg">
               {currentMood.stat}
             </p>
           </div>
 
-          <div ref={statsRef} className="grid grid-cols-2 gap-4 md:gap-6">
+          <div ref={statsRef} className="grid grid-cols-2 gap-2 md:gap-3">
             {FAKE_STATS.map((stat) => (
               <div
                 key={stat.label}
-                className={`brutal-border brutal-shadow-sm rounded-2xl ${stat.color} p-5 md:p-6 transition-all hover:brutal-shadow-hover hover:-rotate-1 cursor-default`}
+                className={`brutal-border brutal-shadow-sm rounded-xl ${stat.color} p-3 md:p-4`}
               >
-                <p className="font-display text-xs uppercase tracking-wider opacity-70">
+                <p className="font-display text-[10px] uppercase tracking-wider opacity-70">
                   {stat.label}
                 </p>
-                <p className="mt-2 font-display text-2xl md:text-3xl uppercase">
+                <p className="mt-1 font-display text-lg uppercase md:text-xl">
                   {stat.value}
                 </p>
               </div>
@@ -130,12 +127,12 @@ export function Wellbeing() {
 
         <div
           data-reveal
-          className="mt-12 brutal-border rounded-3xl bg-orange p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-cream"
+          className="mt-6 brutal-border rounded-2xl bg-orange p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-cream"
         >
-          <p className="font-display text-lg md:text-xl uppercase">
+          <p className="font-display text-sm uppercase md:text-base">
             Prescription: 10 min offline. No excuses.
           </p>
-          <BrutalButton variant="yellow" size="lg">
+          <BrutalButton variant="yellow" size="md">
             I&apos;ll Try →
           </BrutalButton>
         </div>
