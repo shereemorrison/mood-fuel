@@ -98,3 +98,14 @@ export const POSTERS: readonly PosterCampaign[] = [
     image: "/poster5.jpg",
   },
 ] as const;
+
+export const MARQUEE_ITEMS = [
+  "MOOD-FUEL",
+  "YOUR BRAIN DESERVES BETTER",
+  "DIGITAL WELLBEING",
+  "UNPLUG",
+  "RECLAIM YOUR ATTENTION",
+  "REST IS POWER",
+  "LOG OFF. REFUEL.",
+  "BRAIN CARE NOW",
+] as const;
