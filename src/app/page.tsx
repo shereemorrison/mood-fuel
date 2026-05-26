@@ -3,6 +3,7 @@ import { BrainOnline } from "@/components/sections/BrainOnline";
 import { Hero } from "@/components/sections/Hero";
 import { Manifesto } from "@/components/sections/Manifesto";
 import { PosterGallery } from "@/components/sections/PosterGallery";
+import { Marquee } from "@/components/sections/Marquee";
 import { Wellbeing } from "@/components/sections/Wellbeing";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
         <PosterGallery />
         <BrainOnline />
         <Wellbeing />
+        <Marquee />
       </main>
     </>
   );
