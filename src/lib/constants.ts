@@ -98,3 +98,13 @@ export const POSTERS: readonly PosterCampaign[] = [
     image: "/poster5.jpg",
   },
 ] as const;
+
+export const SOCIAL_LINKS = [
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/accounts/login/",
+  },
+  { label: "Twitter", href: "https://x.com/i/flow/login" },
+  { label: "TikTok", href: "https://www.tiktok.com/login" },
+  { label: "Newsletter", href: "#newsletter" },
+] as const;
