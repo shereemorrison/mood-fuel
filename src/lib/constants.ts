@@ -99,6 +99,14 @@ export const POSTERS: readonly PosterCampaign[] = [
   },
 ] as const;
 
+export const SOCIAL_LINKS = [
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/accounts/login/",
+  },
+  { label: "Twitter", href: "https://x.com/i/flow/login" },
+  { label: "TikTok", href: "https://www.tiktok.com/login" },
+  { label: "Newsletter", href: "#newsletter" },
 export const MARQUEE_ITEMS = [
   "MOOD-FUEL",
   "YOUR BRAIN DESERVES BETTER",

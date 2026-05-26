@@ -1,3 +1,4 @@
+import { Footer } from "@/components/layout/Footer";
 import { Navigation } from "@/components/layout/Navigation";
 import { BrainOnline } from "@/components/sections/BrainOnline";
 import { Hero } from "@/components/sections/Hero";
@@ -18,6 +19,7 @@ export default function Home() {
         <Wellbeing />
         <Marquee />
       </main>
+      <Footer />
     </>
   );
 }
