@@ -107,4 +107,13 @@ export const SOCIAL_LINKS = [
   { label: "Twitter", href: "https://x.com/i/flow/login" },
   { label: "TikTok", href: "https://www.tiktok.com/login" },
   { label: "Newsletter", href: "#newsletter" },
+export const MARQUEE_ITEMS = [
+  "MOOD-FUEL",
+  "YOUR BRAIN DESERVES BETTER",
+  "DIGITAL WELLBEING",
+  "UNPLUG",
+  "RECLAIM YOUR ATTENTION",
+  "REST IS POWER",
+  "LOG OFF. REFUEL.",
+  "BRAIN CARE NOW",
 ] as const;
